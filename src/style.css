@@ -1,1 +1,79 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
+
+body {
+  background: green;
+}
+
+.text-card {
+  margin: auto;
+  background: red;
+  border-radius: 10px;
+  width: 50%;
+}
+
+.text {
+  padding: 20px;
+}
+
+.card {
+  display: flex;
+  margin: auto;
+  background-image: url(https://img.freepik.com/foto-gratis/textura-carton-yeso-sepia_95678-419.jpg?auto=format&h=200);
+  margin-top: 30px;
+  height: 380px;
+  width: 250px;
+  border-radius: 5%;
+}
+
+.header {
+  display: flex;
+}
+
+.header .number {
+  text-align: start;
+  padding: 20px;
+  width: 50%;
+}
+
+.symbol-top {
+  width: 50%;
+  text-align: end;
+  padding: 20px;
+}
+
+.footer {
+  display: flex;
+}
+
+.symbol-botom {
+  text-align: start;
+  padding: 20px;
+  width: 50%;
+}
+
+.footer .number {
+  text-align: end;
+  padding: 20px;
+  width: 50%;
+}
+
+.center {
+  border: 2px rgb(66, 66, 166) solid;
+  margin: auto;
+  align-items: center;
+  height: 200px;
+  width: 120px;
+  font-size: 40px;
+  display: block;
+}
+
+#inverted {
+  transform: rotate(180deg);
+}
+
+.symbol-top,
+.symbol-botom,
+.number {
+  font-size: 40px;
+}
+/*♦♥♠♣*/

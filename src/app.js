@@ -6,12 +6,9 @@ import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
 
 window.onload = function() {
-  //write your code here
-  let btnChange = document.getElementById("button-change");
-
   let cardNumber = document.getElementsByClassName("number"); //number top es [0] y inferior [1]
 
-  let centerSymbol = document.querySelector(".center"); // simbolos del centro
+  let centerSymbol2 = document.getElementsByTagName("p"); // simbolos del centro
 
   let otherSymbol = document.querySelector(".symbol-top"); // simbolos del header
 
@@ -19,12 +16,69 @@ window.onload = function() {
 
   let changeCard = document.getElementById("button-change");
 
+  let prhase = document.getElementById("phrase");
+
   let arrayCards = ["♦", "♥", "♠", "♣"];
+
+  let arrayPhrase = [
+    "You are the king playing that!!!",
+    "Nice player.. you are the queen in this room...",
+    "You got win all games...",
+    "No way!! you are good player!"
+  ];
 
   changeCard.addEventListener("click", function() {
     let symbolNum = Math.floor(Math.random() * 4);
-    centerSymbol.innerHTML = arrayCards[symbolNum];
+
+    centerSymbol2[0].innerHTML = arrayCards[symbolNum];
+    centerSymbol2[1].innerHTML = arrayCards[symbolNum];
+    centerSymbol2[2].innerHTML = arrayCards[symbolNum];
     otherSymbol.innerHTML = arrayCards[symbolNum];
     otherSymbol2.innerHTML = arrayCards[symbolNum];
+
+    if (symbolNum <= 1) {
+      cardNumber[0].style.color = "red";
+      cardNumber[1].style.color = "red";
+      centerSymbol2[0].style.color = "red";
+      centerSymbol2[1].style.color = "red";
+      centerSymbol2[2].style.color = "red";
+      otherSymbol.style.color = "red";
+      otherSymbol2.style.color = "red";
+    } else if (symbolNum => 3) {
+      cardNumber[0].style.color = "black";
+      cardNumber[1].style.color = "black";
+      centerSymbol2[0].style.color = "black";
+      centerSymbol2[1].style.color = "black";
+      centerSymbol2[2].style.color = "black";
+      otherSymbol.style.color = "black";
+      otherSymbol2.style.color = "black";
+    }
+
+    let numCard = Math.floor(Math.random() * 13) + 1;
+    cardNumber[0].innerHTML = numCard;
+    cardNumber[1].innerHTML = numCard;
+
+    if (numCard == 1) {
+      cardNumber[0].innerHTML = "K";
+      cardNumber[1].innerHTML = "K";
+      prhase.innerHTML = arrayPhrase[0];
+    } else if (numCard == 11) {
+      cardNumber[0].innerHTML = "Q";
+      cardNumber[1].innerHTML = "Q";
+      prhase.innerHTML = arrayPhrase[1];
+    } else if (numCard == 12) {
+      cardNumber[0].innerHTML = "J";
+      cardNumber[1].innerHTML = "J";
+      prhase.innerHTML = arrayPhrase[2];
+    } else if (numCard == 13) {
+      cardNumber[0].innerHTML = "A";
+      cardNumber[0].innerHTML = "A";
+      prhase.innerHTML = arrayPhrase[3];
+    } else {
+      prhase.innerHTML = "";
+    }
   });
 };
+
+// agregar lo demás adicional del ejercico
+// y agregar si es posible las imagener de las cartas (rey y reina) para darle mayor presencia

@@ -6,6 +6,8 @@ import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
 
 window.onload = function() {
+  let rigoText = document.getElementsByClassName("text");
+
   let cardNumber = document.getElementsByClassName("number"); //number top es [0] y inferior [1]
 
   let centerSymbol2 = document.getElementsByTagName("p"); // simbolos del centro
@@ -26,6 +28,8 @@ window.onload = function() {
     "You got win all games...",
     "No way!! you are good player!"
   ];
+
+  let luckyCounter = 0;
 
   changeCard.addEventListener("click", function() {
     let symbolNum = Math.floor(Math.random() * 4);
@@ -62,20 +66,36 @@ window.onload = function() {
       cardNumber[0].innerHTML = "K";
       cardNumber[1].innerHTML = "K";
       prhase.innerHTML = arrayPhrase[0];
+      rigoText[0].innerHTML = "Rigo is excited!!!";
+      luckyCounter = 0;
     } else if (numCard == 11) {
       cardNumber[0].innerHTML = "Q";
       cardNumber[1].innerHTML = "Q";
       prhase.innerHTML = arrayPhrase[1];
+      rigoText[0].innerHTML = "Rigo is playing cards";
+      luckyCounter = 0;
     } else if (numCard == 12) {
       cardNumber[0].innerHTML = "J";
       cardNumber[1].innerHTML = "J";
       prhase.innerHTML = arrayPhrase[2];
+      rigoText[0].innerHTML = "Rigo is playing cards";
+      luckyCounter = 0;
     } else if (numCard == 13) {
       cardNumber[0].innerHTML = "A";
-      cardNumber[0].innerHTML = "A";
+      cardNumber[1].innerHTML = "A";
       prhase.innerHTML = arrayPhrase[3];
+      rigoText[0].innerHTML = "Rigo is playing cards";
+      luckyCounter = 0;
     } else {
       prhase.innerHTML = "";
+      rigoText[0].innerHTML = "Rigo is playing cards";
+      luckyCounter++;
+    }
+
+    if (luckyCounter == 5) {
+      prhase.innerHTML = "Calm down, you luck come in soon...";
+      rigoText[0].innerHTML = "Rigo is worried...";
+      luckyCounter = 0;
     }
   });
 };

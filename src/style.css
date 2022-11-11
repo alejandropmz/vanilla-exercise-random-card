@@ -6,9 +6,9 @@ body {
 
 .text-card {
   margin: auto;
-  background: red;
+  background: greenyellow;
   border-radius: 10px;
-  width: 50%;
+  width: 40%;
 }
 
 .text {
@@ -20,9 +20,13 @@ body {
   margin: auto;
   background-image: url(https://img.freepik.com/foto-gratis/textura-carton-yeso-sepia_95678-419.jpg?auto=format&h=200);
   margin-top: 30px;
-  height: 380px;
+  height: 400px;
   width: 250px;
   border-radius: 5%;
+  border-top: black solid 1px;
+  border-right: black solid 3px;
+  border-bottom: black solid 3px;
+  border-left: black solid 1px;
 }
 
 .header {
@@ -61,7 +65,7 @@ body {
   border: 2px rgb(66, 66, 166) solid;
   margin: auto;
   align-items: center;
-  height: 200px;
+  height: 215px;
   width: 120px;
   font-size: 40px;
   display: block;
@@ -71,9 +75,21 @@ body {
   transform: rotate(180deg);
 }
 
+.inverted-symbol {
+  transform: rotate(180deg);
+}
+
 .symbol-top,
 .symbol-botom,
 .number {
   font-size: 40px;
+}
+
+#phrase {
+  margin: auto;
+  color: white;
+  background: rgb(66, 66, 166);
+  border-radius: 10px;
+  width: 40%;
 }
 /*♦♥♠♣*/

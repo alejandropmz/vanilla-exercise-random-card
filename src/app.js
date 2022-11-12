@@ -124,6 +124,8 @@ window.onload = function() {
     game();
   });
 
+
+  // solo se esta dejando una sola vez. acomodar eso
   buttonSize.addEventListener("click", function() {
     cardStyle.style.height = input + "px";
     cardStyle.style.width = input2 + "px";

@@ -4,6 +4,7 @@ import "./style.css";
 
 import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
+import { auto } from "@popperjs/core";
 
 window.onload = function() {
   let rigoText = document.getElementsByClassName("text");
@@ -20,6 +21,16 @@ window.onload = function() {
 
   let prhase = document.getElementById("phrase");
 
+  let autoButton = document.getElementById("auto-button");
+
+  let cardStyle = document.getElementById("card");
+
+  let buttonSize = document.getElementById("button-size");
+
+  let input = document.getElementById("height").value;
+
+  let input2 = document.getElementById("width").value;
+
   let arrayCards = ["♦", "♥", "♠", "♣"];
 
   let arrayPhrase = [
@@ -31,7 +42,7 @@ window.onload = function() {
 
   let luckyCounter = 0;
 
-  changeCard.addEventListener("click", function() {
+  function game() {
     let symbolNum = Math.floor(Math.random() * 4);
 
     centerSymbol2[0].innerHTML = arrayCards[symbolNum];
@@ -97,6 +108,26 @@ window.onload = function() {
       rigoText[0].innerHTML = "Rigo is worried...";
       luckyCounter = 0;
     }
+  }
+
+  let automaticButtom = setInterval(() => {
+    game();
+  }, 5000);
+
+  autoButton.addEventListener("click", function() {
+    // poder activar y desactivar el setinterval
+    clearInterval(automaticButtom);
+    autoButton.innerHTML = "To start again, reload page";
+  });
+
+  changeCard.addEventListener("click", function() {
+    game();
+  });
+
+  buttonSize.addEventListener("click", function() {
+    cardStyle.style.height = input + "px";
+    cardStyle.style.width = input2 + "px";
+    console.log("click button");
   });
 };
 

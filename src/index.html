@@ -12,14 +12,15 @@
     />
     <link rel="shortcut icon" href="./4geeks.ico" />
   </head>
+  
   <body>
     <div class="container-fluid text-center">
       <div class="text-card">
         <h1 class="mt-5 text">Rigo is playing cards</h1>
       </div>
-      <!--aquí van las cartas-->
+      <!--card-->
 
-      <div class="card">
+      <div class="card" id="card">
         <div class="header">
           <div class="number">
             8
@@ -40,16 +41,28 @@
       </div>
       <br />
 
-      <h2 id="phrase"></h2>
+      <div><h2 id="phrase"></h2></div>
 
-      <button id="button-change" class="btn btn-primary d-block m-auto mt-5">
-        change this
-      </button>
-      <div class="fixed-bottom p-4">
+      <div class="buttoms">
+        <button id="button-change" class="btn btn-primary d-block m-auto mt-2">
+          change card
+        </button>
+        <button id="auto-button" class="btn btn-warning d-block m-auto mt-2">
+          Stop automatic changes
+        </button>
+        <div class="inputs mt-3">
+          <input id="height" type="text" placeholder="change height" value="">
+          <input id="width" type="text" placeholder="change width" value="">
+        </div>
+        <button id="button-size" class="btn btn-info d-block m-auto mt-2">
+          change size
+        </button>
+      </div>
+      <!--<div class="fixed-bottom p-4">
         Made with ❤️ by
         <a href="https://www.4geeksacademy.com"
           >4Geeks Academy and alejandropmz</a
-        >
+        >-->
       </div>
     </div>
   </body>

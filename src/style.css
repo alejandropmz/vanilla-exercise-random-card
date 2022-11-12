@@ -16,10 +16,12 @@ body {
 }
 
 .card {
+  border: red 2px solid;
   display: flex;
   margin: auto;
   background-image: url(https://img.freepik.com/foto-gratis/textura-carton-yeso-sepia_95678-419.jpg?auto=format&h=200);
   margin-top: 30px;
+  padding-bottom: 80px;
   height: 400px;
   width: 250px;
   border-radius: 5%;
@@ -65,8 +67,8 @@ body {
   border: 2px rgb(66, 66, 166) solid;
   margin: auto;
   align-items: center;
-  height: 215px;
-  width: 120px;
+  height: 65%;
+  width: 50%;
   font-size: 40px;
   display: block;
 }
@@ -91,5 +93,18 @@ body {
   background: rgb(66, 66, 166);
   border-radius: 10px;
   width: 40%;
+}
+
+.button-change {
+  margin: auto;
+}
+
+.buttoms {
+  display: block;
+  margin: auto;
+}
+
+.inputs input {
+  background-color: rgba(244, 228, 202, 255);
 }
 /*♦♥♠♣*/

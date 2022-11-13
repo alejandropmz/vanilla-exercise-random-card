@@ -7,131 +7,109 @@ import "./assets/img/4geeks.ico";
 import { auto } from "@popperjs/core";
 
 window.onload = function() {
-  let rigoText = document.getElementsByClassName("text");
-
-  let cardNumber = document.getElementsByClassName("number"); //number top es [0] y inferior [1]
-
-  let centerSymbol2 = document.getElementsByTagName("p"); // simbolos del centro
-
-  let otherSymbol = document.querySelector(".symbol-top"); // simbolos del header
-
-  let otherSymbol2 = document.querySelector(".symbol-botom"); // simbolos del footer
-
-  let changeCard = document.getElementById("button-change");
-
-  let prhase = document.getElementById("phrase");
-
+  let changeButton = document.getElementById("button-change");
+  let header = document.getElementsByClassName("header");
+  let center = document.getElementsByClassName("center");
+  let footer = document.getElementsByClassName("footer");
+  let phrase = document.getElementById("phrase");
+  let rigoPhrase = document.querySelector(".text");
   let autoButton = document.getElementById("auto-button");
-
-  let cardStyle = document.getElementById("card");
-
+  let card = document.getElementById("card");
+  let height = document.getElementById("height").value;
+  let width = document.getElementById("width").value;
   let buttonSize = document.getElementById("button-size");
 
-  let input = document.getElementById("height").value;
+  //Arrays
 
-  let input2 = document.getElementById("width").value;
-
-  let arrayCards = ["♦", "♥", "♠", "♣"];
-
+  let cardArray = ["♦", "♥", "♠", "♣"];
+  let letterCardArray = ["K", "Q", "J", "A"];
   let arrayPhrase = [
     "You are the king playing that!!!",
     "Nice player.. you are the queen in this room...",
     "You got win all games...",
     "No way!! you are good player!"
   ];
+  let rigoPhrases = [
+    "I'm excited!!",
+    "I'm good for this...",
+    "I like poker games!!",
+    "Rigo like money games"
+  ];
 
+  //contador de suerte
   let luckyCounter = 0;
 
-  function game() {
-    let symbolNum = Math.floor(Math.random() * 4);
+  // cambio de cartas
+  function changeCard() {
+    let arraySelects = Math.floor(Math.random() * 4); // numero aleatorio para arrays
+    let symbolCard = cardArray[arraySelects];
 
-    centerSymbol2[0].innerHTML = arrayCards[symbolNum];
-    centerSymbol2[1].innerHTML = arrayCards[symbolNum];
-    centerSymbol2[2].innerHTML = arrayCards[symbolNum];
-    otherSymbol.innerHTML = arrayCards[symbolNum];
-    otherSymbol2.innerHTML = arrayCards[symbolNum];
-
-    if (symbolNum <= 1) {
-      cardNumber[0].style.color = "red";
-      cardNumber[1].style.color = "red";
-      centerSymbol2[0].style.color = "red";
-      centerSymbol2[1].style.color = "red";
-      centerSymbol2[2].style.color = "red";
-      otherSymbol.style.color = "red";
-      otherSymbol2.style.color = "red";
-    } else if (symbolNum => 3) {
-      cardNumber[0].style.color = "black";
-      cardNumber[1].style.color = "black";
-      centerSymbol2[0].style.color = "black";
-      centerSymbol2[1].style.color = "black";
-      centerSymbol2[2].style.color = "black";
-      otherSymbol.style.color = "black";
-      otherSymbol2.style.color = "black";
-    }
-
-    let numCard = Math.floor(Math.random() * 13) + 1;
-    cardNumber[0].innerHTML = numCard;
-    cardNumber[1].innerHTML = numCard;
-
-    if (numCard == 1) {
-      cardNumber[0].innerHTML = "K";
-      cardNumber[1].innerHTML = "K";
-      prhase.innerHTML = arrayPhrase[0];
-      rigoText[0].innerHTML = "Rigo is excited!!!";
+    let selectNumber = Math.floor(Math.random() * 13) + 1; // numero aleatorio de cartas
+    if (
+      selectNumber == 1 ||
+      selectNumber == 11 ||
+      selectNumber == 12 || // condicionales de las cartas
+      selectNumber == 13
+    ) {
       luckyCounter = 0;
-    } else if (numCard == 11) {
-      cardNumber[0].innerHTML = "Q";
-      cardNumber[1].innerHTML = "Q";
-      prhase.innerHTML = arrayPhrase[1];
-      rigoText[0].innerHTML = "Rigo is playing cards";
-      luckyCounter = 0;
-    } else if (numCard == 12) {
-      cardNumber[0].innerHTML = "J";
-      cardNumber[1].innerHTML = "J";
-      prhase.innerHTML = arrayPhrase[2];
-      rigoText[0].innerHTML = "Rigo is playing cards";
-      luckyCounter = 0;
-    } else if (numCard == 13) {
-      cardNumber[0].innerHTML = "A";
-      cardNumber[1].innerHTML = "A";
-      prhase.innerHTML = arrayPhrase[3];
-      rigoText[0].innerHTML = "Rigo is playing cards";
-      luckyCounter = 0;
+      var numberCard = letterCardArray[arraySelects];
+      phrase.innerHTML = arrayPhrase[arraySelects];
+      phrase.style.background = "rgb(66, 66, 166)";
+      rigoPhrase.innerHTML = rigoPhrases[arraySelects];
+      if (arraySelects == 0) {
+        rigoPhrase.style.background = "rgba(246,230,205,255)";
+      }
     } else {
-      prhase.innerHTML = "";
-      rigoText[0].innerHTML = "Rigo is playing cards";
       luckyCounter++;
+      var numberCard = selectNumber;
+      phrase.innerHTML = "Let's play game!!";
+      phrase.style.background = "green";
+      rigoPhrase.innerHTML = "Rigo is playing cards";
+      if (arraySelects != 0) {
+        rigoPhrase.style.background = "rgba(255, 193, 7, 255)";
+      }
+
+      if (luckyCounter == 5) {
+        luckyCounter = 0;
+        phrase.innerHTML = "Calm down, you luck come in soon...";
+        phrase.style.background = "rgba(255,193,7,255)";
+      }
     }
 
-    if (luckyCounter == 5) {
-      prhase.innerHTML = "Calm down, you luck come in soon...";
-      rigoText[0].innerHTML = "Rigo is worried...";
-      luckyCounter = 0;
+    if (arraySelects <= 1) {
+      // condicional de color de las cartas
+      header[0].style.color = "red";
+      center[0].style.color = "red";
+      footer[0].style.color = "red";
+    } else {
+      header[0].style.color = "";
+      center[0].style.color = "";
+      footer[0].style.color = "";
     }
+
+    // proceso de sustitución de las cartas
+    header[0].innerHTML = `<p class="number">${numberCard}</p><p>${symbolCard}</p>`;
+    center[0].innerHTML = `<p>${symbolCard}</p><p>${symbolCard}</p><p id="inverted" class="reverse-symbol">${symbolCard}</p>`;
+    footer[0].innerHTML = `<p>${symbolCard}</p><p>${numberCard}</p>`;
   }
 
-  let automaticButtom = setInterval(() => {
-    game();
-  }, 5000);
-
+  // boton de automatización de la carta
   autoButton.addEventListener("click", function() {
-    // poder activar y desactivar el setinterval
-    clearInterval(automaticButtom);
-    autoButton.innerHTML = "To start again, reload page";
+    //clearInterval(automaticButtom);
+    let automaticButtom = setInterval(() => {
+      changeCard();
+    }, 5000);
+    autoButton.innerHTML = "Now your card is automatic";
   });
 
-  changeCard.addEventListener("click", function() {
-    game();
+  // boton que cambia la carta
+  changeButton.addEventListener("click", function() {
+    changeCard();
   });
 
-
-  // solo se esta dejando una sola vez. acomodar eso
+  // boton que cambia el tamaño de la carta
   buttonSize.addEventListener("click", function() {
-    cardStyle.style.height = input + "px";
-    cardStyle.style.width = input2 + "px";
-    console.log("click button");
+    card.style.height = `${height}px`;
+    card.style.width = `${width}px`;
   });
 };
-
-// agregar lo demás adicional del ejercico
-// y agregar si es posible las imagener de las cartas (rey y reina) para darle mayor presencia

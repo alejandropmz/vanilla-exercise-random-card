@@ -10,49 +10,43 @@
       integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
       crossorigin="anonymous"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@500&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="./4geeks.ico" />
   </head>
   
   <body>
+
+    <!--Mensaje de ringo para el mundo-->
     <div class="container-fluid text-center">
       <div class="text-card">
         <h1 class="mt-5 text">Rigo is playing cards</h1>
       </div>
-      <!--card-->
 
-      <div class="card" id="card">
-        <div class="header">
-          <div class="number">
-            8
-          </div>
-          <div class="symbol-top">♠</div>
-        </div>
-        <div class="center">
-          <p>♠</p>
-          <p>♠</p>
-          <p id="inverted" class="inverted-symbol">♠</p>
-        </div>
-        <div class="footer">
-          <div class="symbol-botom">♠</div>
-          <div class="number">
-            8
-          </div>
-        </div>
+
+      <!--card-->
+          <div class="card" id="card">
+        <div class="header"><p class="number">8</p><p>♠</p></div>
+        <div class="center"><p>♠</p><p>♠</p><p id="inverted" class="reverse-symbol">♠</p></div>
+        <div class="footer"><p>♠</p><p>8</p></div>
       </div>
       <br />
 
-      <div><h2 id="phrase"></h2></div>
+      <!--frase inferior de la carta-->
+      <div><h2 id="phrase">let's play game!!</h2></div>
 
+      <!--botones inferiores de la carta-->
       <div class="buttoms">
         <button id="button-change" class="btn btn-primary d-block m-auto mt-2">
           change card
         </button>
         <button id="auto-button" class="btn btn-warning d-block m-auto mt-2">
-          Stop automatic changes
+          Automatic changes
         </button>
         <div class="inputs mt-3">
-          <input id="height" type="text" placeholder="change height" value="">
-          <input id="width" type="text" placeholder="change width" value="">
+          <input id="height" type="text" placeholder="change height" >
+          <input id="width" type="text" placeholder="change width" >
         </div>
         <button id="button-size" class="btn btn-info d-block m-auto mt-2">
           change size

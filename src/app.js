@@ -15,9 +15,9 @@ window.onload = function() {
   let rigoPhrase = document.querySelector(".text");
   let autoButton = document.getElementById("auto-button");
   let card = document.getElementById("card");
-  let height = document.getElementById("height").value;
-  let width = document.getElementById("width").value;
-  let buttonSize = document.getElementById("button-size");
+  /* let height = document.getElementById("height").value; */
+  /* let width = document.getElementById("width").value; */
+  /* let buttonSize = document.getElementById("button-size"); */
 
   //Arrays
 
@@ -99,7 +99,7 @@ window.onload = function() {
     let automaticButtom = setInterval(() => {
       changeCard();
     }, 5000);
-    autoButton.innerHTML = "Now your card is automatic";
+    autoButton.innerHTML = "Now your changes in the card are automatic";
   });
 
   // boton que cambia la carta
@@ -108,8 +108,8 @@ window.onload = function() {
   });
 
   // boton que cambia el tamaño de la carta
-  buttonSize.addEventListener("click", function() {
+  /* buttonSize.addEventListener("click", function() {
     card.style.height = `${height}px`;
     card.style.width = `${width}px`;
-  });
+  }); */
 };
